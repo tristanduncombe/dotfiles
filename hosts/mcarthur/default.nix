@@ -2,44 +2,30 @@
   pkgs,
   self,
   lib,
-  inputs,
   ...
 }:
 {
   imports = [
     ./hardware.nix
     "${self}/modules/bootloader/systemd.nix"
-    "${self}/modules/hardware/amd.nix"
     "${self}/modules/services/pipewire.nix"
-    "${self}/modules/services/peerix.nix"
     "${self}/modules/services/gnome-keyring.nix"
     "${self}/modules/services/bluetooth.nix"
     "${self}/modules/services/virtualisation.nix"
     "${self}/modules/services/avahi.nix"
     "${self}/modules/services/ratbag.nix"
     "${self}/modules/services/cachix.nix"
-    "${self}/modules/gaming/gaming.nix"
     "${self}/modules/programs/caching.nix"
-    "${self}/modules/kernel/patches/odysseyg9.nix"
     "${self}/modules/services/printing.nix"
-    "${self}/modules/hardware/pentablet.nix"
-    "${self}/modules/services/ollama.nix"
-    "${self}/modules/services/openconnect-sso.nix"
-    "${self}/modules/services/docker.nix"
-
-    # inputs.determinate.nixosModules.default
   ];
+
+  services.fprintd.enable = true;
 
   # Enable binfmt emulation of aarch64-linux.
   boot.binfmt.emulatedSystems = [
     "aarch64-linux"
     "armv6l-linux"
   ];
-
-  boot.kernelPackages = pkgs.linuxPackages_6_15;
-  # boot.kernelPackages = pkgs.linuxPackages_6_12;
-
-  boot.kernelParams = [ "intel_pstate=disable" ];
 
   time.timeZone = lib.mkForce "Australia/brisbane";
   services.automatic-timezoned.enable = true;
@@ -49,31 +35,10 @@
     firewall = {
       enable = true;
       allowedTCPPorts = [
-        25565
-        25564
-        24454
-        25566
-        25049
-        3000
-        5432
-        4242
-        42420
       ];
       allowedUDPPortRanges = [
-        {
-          from = 25564;
-          to = 25566;
-        }
-        {
-          from = 24454;
-          to = 24456;
-        }
       ];
       allowedUDPPorts = [
-        3000
-        25049
-        4242
-        42420
       ];
     };
   };
@@ -116,11 +81,6 @@
   };
 
   boot.tmp.cleanOnBoot = true;
-
-  services.udev.extraRules = ''
-    KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1038", ATTRS{idProduct}=="12e0", TAG+="uaccess"
-    SUBSYSTEM=="usb", MODE="0660", GROUP="usb"
-  '';
 
   systemd.targets = {
     sleep.enable = true;
