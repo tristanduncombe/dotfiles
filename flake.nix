@@ -52,12 +52,6 @@
     commonix.url = "github:mcarthur-alford/commonix";
     nixcord.url = "github:kaylorben/nixcord";
     zen-browser.url = "github:MarceColl/zen-browser-flake";
-    openconnect-sso = {
-      url = "github:ThinkChaos/openconnect-sso/fix/nix-flake";
-      # inputs.flake-utils.follows = "utils";
-      inputs.nixpkgs.follows = "nixpkgs";
-      # inputs.systems.follows = "systems";
-    };
   };
 
   outputs =

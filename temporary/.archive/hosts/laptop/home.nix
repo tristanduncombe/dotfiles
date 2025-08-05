@@ -1,7 +1,7 @@
 { pkgs, system, inputs, ... }:
 let
   host = {
-    hostName = "laptop";
+    hostName = "nixos";
     mainMonitor = "MAIN";
   };
 in

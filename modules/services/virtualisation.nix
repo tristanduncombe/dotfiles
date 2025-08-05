@@ -14,6 +14,10 @@
       };
     };
     spiceUSBRedirection.enable = true;
+    docker = {
+      enable = true;
+      rootless = {enable = true;};
+    };
   };
 
   services.spice-vdagentd.enable = true;

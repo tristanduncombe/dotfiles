@@ -10,8 +10,6 @@
     inputs.nix-index-database.nixosModules.nix-index
     "${self}/modules/nix" # Configuration of nix itself!
     "${self}/modules/scripts" # Useful scripts to have on path
-    "${self}/modules/services/openssh.nix" # openssh configuration
-    "${self}/modules/programs/sops.nix" # SOPS secret management
     "${self}/modules/programs/nh.nix" # nix helper
   ];
 
