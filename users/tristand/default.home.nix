@@ -64,7 +64,7 @@
 
     nodejs
   
-    dbeaver
+    dbeaver-bin
 
     jetbrains.idea-community
 
