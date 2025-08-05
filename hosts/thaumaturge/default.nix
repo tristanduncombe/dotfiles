@@ -2,6 +2,7 @@
   pkgs,
   self,
   lib,
+  inputs,
   ...
 }:
 {
@@ -17,12 +18,16 @@
     "${self}/modules/services/avahi.nix"
     "${self}/modules/services/ratbag.nix"
     "${self}/modules/services/cachix.nix"
-    "${self}/modules/programs/steam.nix"
+    "${self}/modules/gaming/gaming.nix"
     "${self}/modules/programs/caching.nix"
     "${self}/modules/kernel/patches/odysseyg9.nix"
     "${self}/modules/services/printing.nix"
     "${self}/modules/hardware/pentablet.nix"
     "${self}/modules/services/ollama.nix"
+    "${self}/modules/services/openconnect-sso.nix"
+    "${self}/modules/services/docker.nix"
+
+    # inputs.determinate.nixosModules.default
   ];
 
   # Enable binfmt emulation of aarch64-linux.
@@ -30,6 +35,11 @@
     "aarch64-linux"
     "armv6l-linux"
   ];
+
+  boot.kernelPackages = pkgs.linuxPackages_6_15;
+  # boot.kernelPackages = pkgs.linuxPackages_6_12;
+
+  boot.kernelParams = [ "intel_pstate=disable" ];
 
   time.timeZone = lib.mkForce "Australia/brisbane";
   services.automatic-timezoned.enable = true;
@@ -40,22 +50,30 @@
       enable = true;
       allowedTCPPorts = [
         25565
+        25564
+        24454
         25566
         25049
         3000
         5432
         4242
+        42420
       ];
       allowedUDPPortRanges = [
         {
-          from = 25565;
+          from = 25564;
           to = 25566;
+        }
+        {
+          from = 24454;
+          to = 24456;
         }
       ];
       allowedUDPPorts = [
         3000
         25049
         4242
+        42420
       ];
     };
   };
@@ -66,8 +84,6 @@
 
   programs.corectrl.enable = true;
   programs.coolercontrol.enable = true;
-
-  programs.steam.extest.enable = true;
 
   services.dnsmasq.enable = true;
 

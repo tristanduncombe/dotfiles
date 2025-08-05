@@ -16,16 +16,24 @@
     "${self}/modules/terminal/alucard.home.nix"
   ];
 
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs
+      obs-backgroundremoval
+      obs-pipewire-audio-capture
+    ];
+  };
+
   home.packages = with pkgs; [
     # Terminal
-    btop # Resource Management
+    btop-rocm # Resource Management
     ranger # File management
     unzip # Unzipper
 
     # Video/Audio
     feh # Image Viewer
     mpv # Media Player
-    obs-studio # Recording
     pavucontrol # Audio Control
     easyeffects
     vlc # Media Player
@@ -47,6 +55,7 @@
     # git
     gh
     git-lfs
+    jujutsu
 
     jetbrains.rust-rover
 
@@ -87,6 +96,9 @@
     # texlive
     # texlive.combined.scheme-full
 
+    # Pomodoro!!!
+    pomodoro-gtk
+
     anki-bin
     nautilus
     usbutils
@@ -104,5 +116,7 @@
     brightnessctl
     acpi
     playerctl
+
+    rclone
   ];
 }

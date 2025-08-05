@@ -17,7 +17,9 @@
     "${self}/modules/programs/kitty.home.nix"
     "${self}/modules/services/xdg-mime.home.nix"
     "${self}/modules/services/mako.home.nix"
+    "${self}/modules/protocol/wayland.home.nix"
   ];
+  services.swww.enable = true;
   nixpkgs.overlays = [ inputs.niri.overlays.niri ];
   programs.niri.package = pkgs.niri-unstable;
   programs.niri.enable = true;
@@ -39,8 +41,7 @@
       # { command = [ "${pkgs.hyprlock}/bin/hyprlock" ]; }
       {
         command = [
-          "swww"
-          "init"
+          "swww-daemon"
         ];
       }
     ];
@@ -51,7 +52,9 @@
     };
 
     outputs."HDMI-A-1".scale = 1.0;
+    outputs."HDMI-A-1".variable-refresh-rate = true;
     outputs."eDP-1".scale = 1.2;
+    outputs."eDP-1".variable-refresh-rate = true;
 
     environment = {
       QT_QPA_PLATFORM = "wayland";
@@ -60,8 +63,8 @@
 
     layout = {
       focus-ring = {
-        enable = true;
-        width = 2;
+        enable = false;
+        width = 1;
       };
       border = {
         enable = false;
@@ -79,7 +82,7 @@
     window-rules = [
       {
         matches = [
-          { app-id = "firefox"; }
+          # { app-id = "firefox"; }
           { app-id = "vesktop"; }
         ];
         block-out-from = "screencast";

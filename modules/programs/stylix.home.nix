@@ -68,7 +68,7 @@ let
     '';
 in
 {
-  imports = [ inputs.stylix.homeManagerModules.stylix ];
+  imports = [ inputs.stylix.homeModules.stylix ];
   home.packages = with pkgs; [ palette ];
 
   stylix = {
@@ -76,10 +76,12 @@ in
     autoEnable = true;
     targets.hyprland.enable = false;
     targets.spicetify.enable = false;
-    # base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
+    targets.hyprlock.enable = false;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
-    base16Scheme = "${base16Yaml}";
+    # base16Scheme = "${base16Yaml}";
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest.yaml";
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     image = "${self}/assets/wallpapers/PhantomThieves-Ultrawide.png";
     # cursor.name = "Breeze-gtk";

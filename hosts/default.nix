@@ -11,6 +11,10 @@
     "${self}/modules/nix" # Configuration of nix itself!
     "${self}/modules/scripts" # Useful scripts to have on path
     "${self}/modules/programs/nh.nix" # nix helper
+
+    # Making my life easier!
+    "${self}/modules/services/envfs.nix"
+    "${self}/modules/nix/nix-ld.nix"
   ];
 
   i18n = {

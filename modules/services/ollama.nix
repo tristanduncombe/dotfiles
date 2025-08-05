@@ -16,7 +16,8 @@ let
     # rev = "501e3f0dec99ea54c3e2c2e0a8b3041e9c0ca830";
     # sha256 = "sha256-Z54jflalVgi5RJhdOMrz909RyB8sqaKo3/Yq5SRPNP8=";
   };
-  pkgs-pinned = import nixpkgs-pinned { inherit system; };
+  # pkgs-pinned = import nixpkgs-pinned { inherit system; };
+  pkgs-pinned = pkgs;
 in
 {
   # a temporary helpful thing?
@@ -31,9 +32,22 @@ in
     package = pkgs-pinned.ollama-rocm;
     rocmOverrideGfx = "10.3.0";
     loadModels = [
-      "deepseek-r1"
+      "deepseek-r1:32b"
     ];
     acceleration = "rocm";
+  };
+
+  services.open-webui = {
+    package = pkgs-pinned.open-webui;
+    enable = true;
+    port = 49152;
+    environment = {
+      ANONYMIZED_TELEMETRY = "False";
+      DO_NOT_TRACK = "True";
+      SCARF_NO_ANALYTICS = "True";
+      OLLAMA_API_BASE_URL = "http://127.0.0.1:11434/api";
+      OLLAMA_BASE_URL = "http://127.0.0.1:11434";
+    };
   };
 
   environment.systemPackages = [

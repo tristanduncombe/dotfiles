@@ -2,8 +2,10 @@
   description = "Magical NixOS/Home-Manager Configuration";
 
   inputs = {
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11"; # Nix Packages
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable"; # Nix Packages
     nix-formatter-pack.url = "github:Gerschtli/nix-formatter-pack";
+    # determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
     nix-index-database.url = "github:Mic92/nix-index-database";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -40,7 +42,8 @@
     base16.url = "github:SenchoPens/base16.nix";
     base16-helix.url = "github:McArthur-Alford/base16-helix";
     base16-helix.flake = false;
-    stylix.url = "github:danth/stylix/ed91a20c84a80a525780dcb5ea3387dddf6cd2de";
+    # stylix.url = "github:danth/stylix/ed91a20c84a80a525780dcb5ea3387dddf6cd2de";
+    stylix.url = "github:danth/stylix";
     stylix.inputs.base16-helix.follows = "base16-helix";
     sops-nix.url = "github:Mic92/sops-nix";
     peerix = {
@@ -52,6 +55,14 @@
     commonix.url = "github:mcarthur-alford/commonix";
     nixcord.url = "github:kaylorben/nixcord";
     zen-browser.url = "github:MarceColl/zen-browser-flake";
+    openconnect-sso = {
+      url = "github:ThinkChaos/openconnect-sso/fix/nix-flake";
+      # inputs.flake-utils.follows = "utils";
+      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.systems.follows = "systems";
+    };
+    solaar.url = "https://flakehub.com/f/Svenum/Solaar-Flake/*.tar.gz";
+    vintagestory-nix.url = "github:PierreBorine/vintagestory-nix";
   };
 
   outputs =
