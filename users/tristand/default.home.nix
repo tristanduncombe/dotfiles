@@ -59,7 +59,6 @@
     krita
 
     nordpass
-    nordvpn
 
     vscode
 
