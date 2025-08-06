@@ -66,6 +66,10 @@
   
     dbeaver-bin
 
+    python3Packages.pip
+    python3
+
+
     jetbrains.idea-community
 
     docker
