@@ -66,7 +66,16 @@
   
     dbeaver-bin
 
-    python3Packages.pip
+    python3Packages.fastapi
+    python3Packages.uvicorn
+    python3Packages.pydantic
+    python3Packages.pandas
+    python3Packages.torch
+    python3Packages.sklearn
+    python3Packages.numpy
+    python3Packages.numpy
+    python3Packages.sqlite3
+    python3Packages.seaborn
     python3
 
 
