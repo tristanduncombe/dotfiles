@@ -71,10 +71,9 @@
     python3Packages.pydantic
     python3Packages.pandas
     python3Packages.torch
-    python3Packages.sklearn
+    python3Packages.scikit-learn
     python3Packages.numpy
-    python3Packages.numpy
-    python3Packages.sqlite3
+    sqlite
     python3Packages.seaborn
     python3
 
