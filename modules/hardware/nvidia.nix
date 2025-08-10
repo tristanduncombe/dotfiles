@@ -14,14 +14,8 @@
     powerManagement.finegrained = false;
 
     # Use the NVidia open source kernel module
-    open = false;
+    open = true;
 
     nvidiaSettings = true;
-
-    package = config.hardware.nvidia.stable;
   };
-
-  environment.systemPackages = with pkgs; [
-    nvidia-offload
-  ];
 }

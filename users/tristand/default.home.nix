@@ -66,16 +66,6 @@
   
     dbeaver-bin
 
-    python313Packages.fastapi
-    python313Packages.fastapi-cli
-    python313Packages.uvicorn
-    python313Packages.pydantic
-    python313Packages.pandas
-    python313Packages.torch
-    python313Packages.scikit-learn
-    python313Packages.numpy
-    sqlite
-    python3Packages.seaborn
     python3
     lshw
 

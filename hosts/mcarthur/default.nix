@@ -18,6 +18,7 @@
     "${self}/modules/programs/caching.nix"
     "${self}/modules/services/printing.nix"
     "${self}/modules/hardware/nvidia.nix"
+    "${self}/modules/programs/python.nix"
   ];
 
   services.fprintd.enable = true;
