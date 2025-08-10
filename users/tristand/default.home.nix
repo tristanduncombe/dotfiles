@@ -65,7 +65,7 @@
     nodejs
   
     dbeaver-bin
-
+    uv
     lshw
 
 
