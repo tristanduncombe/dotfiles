@@ -66,7 +66,6 @@
   
     dbeaver-bin
 
-    python3
     lshw
 
 
