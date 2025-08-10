@@ -17,10 +17,10 @@
     "${self}/modules/services/cachix.nix"
     "${self}/modules/programs/caching.nix"
     "${self}/modules/services/printing.nix"
+    "${self}/modules/hardware/nvidia.nix"
   ];
 
   services.fprintd.enable = true;
-
   # Enable binfmt emulation of aarch64-linux.
   boot.binfmt.emulatedSystems = [
     "aarch64-linux"
@@ -87,5 +87,16 @@
     suspend.enable = true;
     hibernate.enable = true;
     hybrid-sleep.enable = true;
+  };
+
+  # NVIDIA Optimus PRIME configuration
+  hardware.nvidia.prime = {
+    offload = {
+      enable = true;
+      enableOffloadCmd = true;
+    };
+
+    intelBusId = "PCI:0:2:0";
+    nvidiaBusId = "PCI:1:0:0";
   };
 }

@@ -66,16 +66,18 @@
   
     dbeaver-bin
 
-    python3Packages.fastapi
-    python3Packages.uvicorn
-    python3Packages.pydantic
-    python3Packages.pandas
-    python3Packages.torch
-    python3Packages.scikit-learn
-    python3Packages.numpy
+    python313Packages.fastapi
+    python313Packages.fastapi-cli
+    python313Packages.uvicorn
+    python313Packages.pydantic
+    python313Packages.pandas
+    python313Packages.torch
+    python313Packages.scikit-learn
+    python313Packages.numpy
     sqlite
     python3Packages.seaborn
     python3
+    lshw
 
 
     jetbrains.idea-community
