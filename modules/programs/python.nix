@@ -1,8 +1,12 @@
-let
-  pkgs = import <nixpkgs> {};
-in pkgs.mkShell {
-  packages = [
-    (pkgs.python3.withPackages (python-pkgs: [
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
+  environment.systemPackages = with pkgs; [
+    (python3.withPackages (python-pkgs: [
       python-pkgs.fastapi
       python-pkgs.fastapi-cli
       python-pkgs.uvicorn
@@ -10,7 +14,7 @@ in pkgs.mkShell {
       python-pkgs.pandas
       python-pkgs.torch
       python-pkgs.scikit-learn
-      python-pkgs.sqlite
+      sqlite
       python-pkgs.seaborn
     ]))
   ];
