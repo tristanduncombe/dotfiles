@@ -48,7 +48,6 @@
     evince
     xorg.xhost
 
-    materia-kde-theme
     sway-contrib.grimshot
     satty
 
@@ -68,6 +67,9 @@
     uv
     lshw
 
+    tlaplus
+    tlaplusToolbox
+
 
     jetbrains.idea-community
 
@@ -75,6 +77,7 @@
 
     # Obsidian!
     obsidian
+    jetbrains.datagrip
 
     # keyring stuff
     # TODO is this necessary?

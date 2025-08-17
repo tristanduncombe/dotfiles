@@ -16,7 +16,7 @@
     "${self}/modules/programs/lan-mouse.home.nix"
     "${self}/modules/programs/kitty.home.nix"
     "${self}/modules/services/xdg-mime.home.nix"
-    "${self}/modules/services/mako.home.nix"
+    "${self}/modules/services/dunst.home.nix"
     "${self}/modules/protocol/wayland.home.nix"
   ];
   services.swww.enable = true;
@@ -44,6 +44,7 @@
           "swww-daemon"
         ];
       }
+      { command = [ "overview" ]; }
     ];
 
     input = {
@@ -53,8 +54,14 @@
 
     outputs."HDMI-A-1".scale = 1.0;
     outputs."HDMI-A-1".variable-refresh-rate = true;
-    outputs."eDP-1".scale = 1.2;
-    outputs."eDP-1".variable-refresh-rate = true;
+    outputs."DP-3" = {
+      scale = 1.2;
+      variable-refresh-rate = true;
+      position = {
+        x = 3840; 
+        y = 0;
+      };
+    };
 
     environment = {
       QT_QPA_PLATFORM = "wayland";
@@ -70,13 +77,19 @@
         enable = false;
         width = 2;
       };
-      gaps = 8;
+      gaps = 5;
       struts = {
         bottom = 1;
         top = 1;
         left = 1;
         right = 1;
       };
+      preset-column-widths = [
+        { proportion = 0.33333; }
+        { proportion = 0.5; }
+        { proportion = 0.66667; }
+        { proportion = 1.0; }
+      ];
     };
 
     window-rules = [
@@ -98,6 +111,7 @@
     binds = with config.lib.niri.actions; rec {
       "Mod+C".action = close-window;
       "Mod+S".action = screenshot;
+      "Mod+R".action = switch-preset-column-width;
       "Mod+Period".action = consume-or-expel-window-right;
       "Mod+Comma".action = consume-or-expel-window-left;
       "Mod+F".action = fullscreen-window;

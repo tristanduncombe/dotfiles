@@ -31,7 +31,7 @@
     eza = {
       enable = true;
       enableNushellIntegration = true;
-      icons = true;
+      icons = "auto";
     };
     tmux = {
       enable = true;

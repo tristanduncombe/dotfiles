@@ -64,7 +64,6 @@
     evince
     xorg.xhost
 
-    materia-kde-theme
     sway-contrib.grimshot
     satty
 

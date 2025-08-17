@@ -1,6 +1,6 @@
 {
   user = "mcarthur";
-  theme = "eva";
+  theme = "rose-pine-moon";
   gui = {
     default = {
       desktop = "niri";

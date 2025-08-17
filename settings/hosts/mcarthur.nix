@@ -5,6 +5,6 @@
   users = [ "tristand" ];
   stateVersion = "22.11";
   trustedUsers = [ "tristand" ];
-  nixPath = "/home/dotfiles";
+  nixPath = "/home/tristand/dotfiles-but-better";
   misc = { };
 }
