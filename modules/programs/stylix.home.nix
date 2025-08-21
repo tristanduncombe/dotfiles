@@ -29,6 +29,7 @@ in
       spicetify.enable = false;
       hyprlock.enable = false;
       dunst.enable = false;
+      kde.enable = false;
     };
 
     base16Scheme = "${pkgs.base16-schemes}/share/themes/${userSettings.theme}.yaml";
