@@ -31,6 +31,11 @@ with config.lib.stylix.colors;
         auto-format = true;
         language-servers = [ "taplo" ];
       }
+      {
+        name = "python";
+        auto-format = true;
+        language-servers = [ "pyright" ];
+      }
     ];
 
     languages.language-server = {
@@ -49,6 +54,9 @@ with config.lib.stylix.colors;
           "lsp"
           "stdio"
         ];
+      };
+      pyright = {
+        command = "pyright-langserver";
       };
     };
 

@@ -117,5 +117,7 @@
     playerctl
 
     rclone
+
+    pyright
   ];
 }
