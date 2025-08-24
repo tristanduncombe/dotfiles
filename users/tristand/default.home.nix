@@ -107,5 +107,8 @@
     polkit
     radeontop
     thunderbird
+    pyright
+    brightnessctl
+    tinymist
   ];
 }
