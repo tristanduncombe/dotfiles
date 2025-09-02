@@ -11,13 +11,13 @@
     inputs.niri.homeModules.stylix
     "${self}/modules/services/hyprlock.home.nix"
     "${self}/modules/services/hypridle.home.nix"
-    # "${self}/modules/programs/rofi.home.nix"
     "${self}/modules/programs/anyrun.home.nix"
     "${self}/modules/programs/lan-mouse.home.nix"
     "${self}/modules/programs/kitty.home.nix"
     "${self}/modules/services/xdg-mime.home.nix"
     "${self}/modules/services/dunst.home.nix"
     "${self}/modules/protocol/wayland.home.nix"
+    "${self}/modules/programs/waybar.home.nix"
   ];
   services.swww.enable = true;
   nixpkgs.overlays = [ inputs.niri.overlays.niri ];
@@ -58,7 +58,7 @@
       scale = 1.2;
       variable-refresh-rate = true;
       position = {
-        x = 3840; 
+        x = 3840;
         y = 0;
       };
     };
@@ -168,6 +168,26 @@
       "Mod+Ctrl+Shift+K".action = move-workspace-up;
       # Floating Windows:
       "Mod+G".action = toggle-window-floating;
+
+      "XF86AudioRaiseVolume" = {
+        allow-when-locked = true;
+        action = spawn "wpctl" "set-volume" "-l" "1.4" "@DEFAULT_AUDIO_SINK@" "5%+";
+      };
+      "XF86AudioLowerVolume" = {
+        allow-when-locked = true;
+        action = spawn "wpctl" "set-volume" "-l" "1.4" "@DEFAULT_AUDIO_SINK@" "5%-";
+      };
+      "XF86AudioMute" = {
+        allow-when-locked = true;
+        action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle";
+      };
+      "XF86AudioMicMute" = {
+        allow-when-locked = true;
+        action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
+      };
+
+      "XF86MonBrightnessUp".action = spawn "brightnessctl" "set" "5%+";
+      "XF86MonBrightnessDown".action = spawn "brightnessctl" "set" "5%-";
     };
   };
 }

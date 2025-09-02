@@ -62,7 +62,7 @@
     vscode
 
     nodejs
-  
+
     dbeaver-bin
     uv
     lshw
@@ -70,14 +70,10 @@
     tlaplus
     tlaplusToolbox
 
-
-    jetbrains.idea-community
-
     docker
 
     # Obsidian!
     obsidian
-    jetbrains.datagrip
 
     # keyring stuff
     # TODO is this necessary?
