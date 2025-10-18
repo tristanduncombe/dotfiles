@@ -41,8 +41,6 @@
     gh
     git-lfs
 
-    jetbrains.rust-rover
-
     zotero_7
 
     evince
@@ -51,10 +49,6 @@
     sway-contrib.grimshot
     satty
 
-    libsForQt5.okular
-
-    # image editors
-    gimp
     krita
 
     nordpass
@@ -106,5 +100,7 @@
     pyright
     brightnessctl
     tinymist
+    jetbrains.rider
+    dotnetCorePackages.dotnet_9.sdk
   ];
 }

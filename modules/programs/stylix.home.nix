@@ -13,7 +13,7 @@ let
   palette = "${systemSettings.nixPath}/${userSettings.theme}.json";
 in
 {
-  imports = [ 
+  imports = [
     inputs.stylix.homeModules.stylix
     "${self}/modules/themes/palette.home.nix"
   ];
@@ -22,7 +22,7 @@ in
     enable = true;
     autoEnable = true;
     polarity = "dark";
-    
+
     targets = {
       hyprland.enable = false;
       firefox.enable = false;

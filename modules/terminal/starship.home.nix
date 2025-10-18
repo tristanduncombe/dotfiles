@@ -36,7 +36,7 @@ in
         show_always = true;
         style_user = "bg:${overlay} fg:${iris}";
         style_root = "bg:${overlay} fg:${iris}";
-        format = "${left-border}[ 󰧱 $user ]($style)${right-border}";
+        format = "${left-border}[  $user ]($style)${right-border}";
         disabled = false;
       };
 
