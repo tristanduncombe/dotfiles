@@ -27,7 +27,7 @@
     "armv6l-linux"
   ];
 
-  time.timeZone = lib.mkForce "Australia/brisbane";
+  time.timeZone = lib.mkForce "Australia/Brisbane";
   services.automatic-timezoned.enable = true;
 
   networking = {
