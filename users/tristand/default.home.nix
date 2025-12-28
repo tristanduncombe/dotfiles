@@ -45,7 +45,7 @@
 
     evince
     xorg.xhost
-
+    postgresql
     sway-contrib.grimshot
     satty
 
