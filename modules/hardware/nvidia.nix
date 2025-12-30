@@ -5,17 +5,13 @@
     enable32Bit = true;
   };
   services.xserver.videoDrivers = ["nvidia"];
-
   hardware.nvidia = {
     modesetting.enable = true;
 
-    powerManagement.enable = false;
+    powerManagement.enable = true;
+    powerManagement.finegrained = true; # if it causes issues, set back to false
 
-    powerManagement.finegrained = false;
-
-    # Use the NVidia open source kernel module
     open = true;
-
     nvidiaSettings = true;
   };
 }
