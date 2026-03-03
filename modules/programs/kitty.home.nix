@@ -11,10 +11,12 @@
         size = lib.mkForce 14;
       };
       settings = {
-        background_opacity = lib.mkForce "0.95";
-        background_blur = lib.mkForce "1";
+        background_opacity = lib.mkForce "0.90";
+        background_blur = lib.mkForce "20";
         confirm_os_window_close = 0;
         disable_ligatures = "cursor";
+        window_padding_width = "6";
+        placement_strategy = "center";
       };
     };
   };

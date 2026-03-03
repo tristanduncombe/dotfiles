@@ -31,7 +31,11 @@
   services.automatic-timezoned.enable = true;
 
   networking = {
-    networkmanager.enable = true;
+    wireless.iwd.enable = false;
+    networkmanager = {
+      enable = true;
+      wifi.backend = "wpa_supplicant";
+    };
     firewall = {
       enable = true;
       allowedTCPPorts = [

@@ -64,16 +64,10 @@
     tlaplus
     tlaplusToolbox
 
-    docker
-
     # Obsidian!
     obsidian
 
-    # keyring stuff
-    # TODO is this necessary?
-    gnome-keyring
-    # libsecret
-    # libgnome-keyring
+    # keyring is managed via the gnome-keyring system module
 
     # Work Comms
     slack
@@ -91,11 +85,8 @@
     xorg.libXxf86vm
     nautilus-open-any-terminal
     libsForQt5.qt5ct
-    dnsmasq
     wineWowPackages.stable
     winetricks
-    polkit
-    radeontop
     thunderbird
     pyright
     brightnessctl

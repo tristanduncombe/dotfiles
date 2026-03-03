@@ -5,6 +5,9 @@
   self,
   ...
 }:
+let
+  p = config.palette;
+in
 {
   imports = [
     inputs.niri.homeModules.niri
@@ -33,6 +36,7 @@
           "--systemd"
           "WAYLAND_DISPLAY"
           "XDG_CURRENT_DESKTOP"
+          "XDG_SESSION_TYPE"
         ];
       }
       { command = [ "${pkgs.xwayland-satellite}/bin/xwayland-satellite" ]; }
@@ -44,7 +48,7 @@
 
     input = {
       focus-follows-mouse.enable = true;
-      warp-mouse-to-focus = true;
+      warp-mouse-to-focus.enable = true;
     };
 
     outputs."HDMI-A-1".scale = 1.0;
@@ -65,19 +69,21 @@
 
     layout = {
       focus-ring = {
-        enable = false;
-        width = 1;
+        enable = true;
+        width = 2;
+        active.color = "#${p.primaryAccent}cc";
+        inactive.color = "#${p.base02}80";
       };
       border = {
         enable = false;
         width = 2;
       };
-      gaps = 5;
+      gaps = 8;
       struts = {
-        bottom = 1;
-        top = 1;
-        left = 1;
-        right = 1;
+        bottom = 2;
+        top = 2;
+        left = 2;
+        right = 2;
       };
       preset-column-widths = [
         { proportion = 0.33333; }

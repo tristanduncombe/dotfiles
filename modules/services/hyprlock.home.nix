@@ -1,4 +1,9 @@
-{ ... }:
+{ config, ... }:
+let
+  p = config.palette;
+  rgba = hex: alpha: "rgba(${hex}, ${alpha})";
+  rgb = hex: "rgb(${hex})";
+in
 {
   programs.hyprlock = {
     enable = true;
@@ -13,7 +18,6 @@
       background = [
         {
           monitor = "";
-          # path = "~/.config/hypr/hyprlock.png";
           path = "screenshot";
           blur_passes = 3;
           contrast = 0.8916;
@@ -28,7 +32,7 @@
           monitor = "";
           path = "~/.config/hypr/vivek.png";
           border_size = 2;
-          border_color = "rgba(255, 255, 255, 0)";
+          border_color = rgba p.base0D "0.6";
           size = 130;
           rounding = -1;
           rotate = 0;
@@ -44,9 +48,9 @@
         {
           monitor = "";
           text = ''cmd[update:1000] echo -e "$(date +"%A, %B %d")"'';
-          color = "rgba(216, 222, 233, 0.70)";
+          color = rgba p.base05 "0.70";
           font_size = 25;
-          font_family = "SF Pro Display Bold";
+          font_family = "FiraCode Nerd Font Mono Medium";
           position = "0, 350";
           halign = "center";
           valign = "center";
@@ -54,9 +58,9 @@
         {
           monitor = "";
           text = ''cmd[update:1000] echo "<span>$(date +"%I:%M")</span>"'';
-          color = "rgba(216, 222, 233, 0.70)";
+          color = rgba p.base05 "0.70";
           font_size = 120;
-          font_family = "SF Pro Display Bold";
+          font_family = "FiraCode Nerd Font Mono Medium";
           position = "0, 250";
           halign = "center";
           valign = "center";
@@ -64,23 +68,23 @@
         {
           monitor = "";
           text = ''cmd[update:1000] echo "$(~/.config/hypr/Scripts/songdetail.sh)"'';
-          color = "rgba(255, 255, 255, 0.6)";
+          color = rgba p.base04 "0.6";
           font_size = 18;
-          font_family = "JetBrains Mono Nerd, SF Pro Display Bold";
+          font_family = "FiraCode Nerd Font Mono Medium";
           position = "0, 50";
           halign = "center";
           valign = "bottom";
         }
         {
           monitor = "";
-          text = "    $USER";
-          color = "rgba(216, 222, 233, 0.80)";
+          text = "    $USER";
+          color = rgba p.base05 "0.80";
           outline_thickness = 2;
           dots_size = 0.2;
           dots_spacing = 0.2;
           dots_center = true;
           font_size = 18;
-          font_family = "SF Pro Display Bold";
+          font_family = "FiraCode Nerd Font Mono Medium";
           position = "0, -130";
           halign = "center";
           valign = "center";
@@ -91,10 +95,10 @@
         {
           monitor = "";
           size = "300, 60";
-          color = "rgba(255, 255, 255, 0.1)";
+          color = rgba p.base02 "0.4";
           rounding = -1;
           border_size = 0;
-          border_color = "rgba(253, 198, 135, 0)";
+          border_color = rgba p.base0D "0.0";
           rotate = 0;
           xray = false;
           position = "0, -130";
@@ -111,13 +115,15 @@
           dots_size = 0.2;
           dots_spacing = 0.2;
           dots_center = true;
-          outer_color = "rgba(0, 0, 0, 0)";
-          inner_color = "rgba(255, 255, 255, 0.1)";
-          font_color = "rgb(200, 200, 200)";
+          outer_color = rgba p.base0D "0.4";
+          inner_color = rgba p.base01 "0.6";
+          font_color = rgb p.base05;
           fade_on_empty = false;
-          font_family = "SF Pro Display Bold";
-          placeholder_text = ''<i><span foreground="##ffffff99">🔒 Enter Pass</span></i>'';
+          font_family = "FiraCode Nerd Font Mono Medium";
+          placeholder_text = ''<i><span foreground="##${p.base04}99">Enter Pass</span></i>'';
           hide_input = false;
+          check_color = rgba p.base0B "0.6";
+          fail_color = rgba p.base08 "0.6";
           position = "0, -210";
           halign = "center";
           valign = "center";

@@ -59,6 +59,11 @@
       nil
       wget
       curl
+      gcc
+      libgcc
+      gnumake
+      cmake
+      extra-cmake-modules
     ];
     variables = {
       SYSTEMD_EDITOR = "hx";

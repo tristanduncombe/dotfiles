@@ -1,52 +1,64 @@
+{ config, ... }:
+let
+  p = config.palette;
+in
 {
   services = {
     dunst = {
       enable = true;
       settings = {
         global = {
-          width = 400;
-          offset = "5x5";
+          width = "(300, 450)";
+          offset = "10x10";
 
           progress_bar_min_width = 380;
           progress_bar_max_width = 380;
-          progress_bar_corner_radius = 2;
+          progress_bar_corner_radius = 6;
+          progress_bar_frame_width = 1;
 
-          padding = 10;
-          horizontal_padding = 10;
-          frame_width = 1;
-          gap_size = 3;
-          font = "Monospace 9";
+          padding = 14;
+          horizontal_padding = 14;
+          text_icon_padding = 14;
+          frame_width = 2;
+          gap_size = 4;
+          font = "FiraCode Nerd Font Mono Medium 10";
 
           icon_theme = "rose-pine-icon-theme";
           enable_recursive_icon_lookup = true;
-          corner_radius = 2;
+          corner_radius = 12;
+          separator_color = "frame";
 
-          background = "#393552";
-          foreground = "#e0def4";
+          background = "#${p.base01}";
+          foreground = "#${p.base05}";
+          frame_color = "#${p.base02}";
+
+          mouse_left_click = "close_current";
+          mouse_right_click = "close_all";
         };
 
         urgency_low = {
-          background = "#393955";
-          highlight = "#3e8fb0";
-          frame_color = "#3e8fb0";
+          background = "#${p.base01}e6";
+          highlight = "#${p.base0B}";
+          frame_color = "#${p.base0B}80";
           default_icon = "dialog-information";
-          format = "<b><span foreground='#3e8fb0'>%s</span></b>\n%b";
+          format = "<b><span foreground='#${p.base0B}'>%s</span></b>\n%b";
         };
 
         urgency_normal = {
-          background = "#443c53";
-          highlight = "#f6c177";
-          frame_color = "#f6c177";
+          background = "#${p.base01}e6";
+          highlight = "#${p.base09}";
+          frame_color = "#${p.base09}80";
           default_icon = "dialog-warning";
-          format = "<b><span foreground='#f6c177'>%s</span></b>\n%b";
+          format = "<b><span foreground='#${p.base09}'>%s</span></b>\n%b";
         };
 
         urgency_critical = {
-          background = "#433754";
-          highlight = "#eb6f92";
-          frame_color = "#eb6f92";
+          background = "#${p.base01}e6";
+          highlight = "#${p.base08}";
+          frame_color = "#${p.base08}";
           default_icon = "dialog-error";
-          format = "<b><span foreground='#eb6f92'>%s</span></b>\n%b";
+          format = "<b><span foreground='#${p.base08}'>%s</span></b>\n%b";
+          timeout = 0;
         };
       };
     };
