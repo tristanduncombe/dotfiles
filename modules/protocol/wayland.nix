@@ -22,7 +22,6 @@
       wl-clipboard
       wlr-randr
       swww
-      qt6.full
       xwayland
       xdg-utils
       xdg-desktop-portal

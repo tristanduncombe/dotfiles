@@ -55,7 +55,6 @@
     systemPackages = with pkgs; [
       git
       helix
-      helix-gpt
       nil
       wget
       curl
